@@ -121,7 +121,45 @@
                                @click="saveTutorial"/>
                 </template>
             </pv-dialog>
+            <!-- Delete Tutorial Confirmation Dialog -->
+            <pv-dialog v-model:visible="deleteTutorialDialog"
+                       header="Confirm"
+                       :modal="true"
+                       :style="{width: '450px'}">
+                <div class="confirmation-content">
+                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"/>
+                    <span v-if="tutorial">Are you sure you want to delete <b>{{ tutorial.title }}</b>?</span>
+                </div>
 
+                <template #footer>
+                    <pv-button :label="'No'.toUpperCase()" icon="pi pi-times"
+                               class="p-button-text"
+                               @click="deleteTutorialDialog = false"/>
+                    <pv-button :label="'Yes'.toUpperCase()" icon="pi pi-check"
+                               class="p-button-text"
+                               @click="deleteTutorial"/>
+                </template>
+            </pv-dialog>
+
+            <!-- Delete Selected Tutorials Confirmation Dialog -->
+<pv-dialog v-model:visible="deleteTutorialsDialog"
+                       header="Confirm"
+                       :modal="true"
+                       :style="{width: '450px'}">
+                <div class="confirmation-content">
+                    <i class="pi pi-exclamation-triangle p-mr-3" style="font-size: 2rem"/>
+                    <span v-if="selectedTutorials">Are you sure you want to delete the selected tutorials?</span>
+                </div>
+
+                <template #footer>
+                    <pv-button :label="'No'.toUpperCase()" icon="pi pi-times"
+                               class="p-button-text"
+                               @click="deleteTutorialsDialog = false"/>
+                    <pv-button :label="'Yes'.toUpperCase()" icon="pi pi-check"
+                               class="p-button-text"
+                               @click="deleteSelectedTutorials"/>
+                </template>
+            </pv-dialog>
 
 
         </div>
