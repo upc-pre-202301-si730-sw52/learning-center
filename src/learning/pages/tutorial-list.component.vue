@@ -172,7 +172,6 @@ import {FilterMatchMode} from "primevue/api";
 
 export default {
     name: "tutorial-list",
-    components: {PvDropdown, PvColumn, PvInputText, PvButton},
     data() {
         return {
             tutorials: [],
