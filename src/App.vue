@@ -1,30 +1,50 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+export default {
+    name: "app",
+    data() {
+        return {
+            drawer: false,
+            items: [
+                { label: 'Home', to: '/home' },
+                { label: 'About', to: '/about' },
+                { label: 'Tutorials', to: '/tutorials' }
+            ]
+        }
+    }
+}
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <pv-toast></pv-toast>
+  <header>
+      <pv-toolbar class="bg-primary">
+          <template #start>
+              <pv-button class="p-button-text text-white"
+                         icon="pi pi-bars"
+                         @click="drawer != drawer"></pv-button>
+              <h3>ACME Learning Center</h3>
+          </template>
+          <template #end>
+              <div class="flex-column">
+                  <router-link
+                      v-for="item in items"
+                      :key="item.label"
+                      :to="item.to"
+                      custom
+                      v-slot="{ navigate, href}">
+                      <pv-button class="p-button-text text-white"
+                      :href="href"
+                      @click="navigate">
+                          {{ item.label }}
+                      </pv-button>
+                      </router-link>
+              </div>
+          </template>
+      </pv-toolbar>
+  </header>
+  <pv-sidebar v-model:visible="drawer"></pv-sidebar>
+  <router-view></router-view>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
 </style>

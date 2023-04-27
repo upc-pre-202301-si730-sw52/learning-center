@@ -107,7 +107,7 @@
                                 <span :class="'tutorial-badge status-' + slotProps.value.toLowerCase()">
                                     {{ slotProps.value }}
                                 </span>
-                                </div>
+                            </div>
                             <span v-else>{{ slotProps.placeholder }}</span>
                         </template>
                     </pv-dropdown>
@@ -142,7 +142,7 @@
             </pv-dialog>
 
             <!-- Delete Selected Tutorials Confirmation Dialog -->
-<pv-dialog v-model:visible="deleteTutorialsDialog"
+            <pv-dialog v-model:visible="deleteTutorialsDialog"
                        header="Confirm"
                        :modal="true"
                        :style="{width: '450px'}">
