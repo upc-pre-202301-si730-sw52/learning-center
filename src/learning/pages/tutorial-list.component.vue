@@ -172,6 +172,7 @@ import {FilterMatchMode} from "primevue/api";
 
 export default {
     name: "tutorial-list",
+    title: "Tutorials",
     data() {
         return {
             tutorials: [],
