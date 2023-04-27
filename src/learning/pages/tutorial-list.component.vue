@@ -292,7 +292,7 @@ export default {
             this.tutorialsService.delete(this.tutorial.id)
                 .then((response) => {
                     this.tutorials = this.tutorials.filter(
-                        (t) => t.id != this.tutorial.id
+                        (t) => t.id !== this.tutorial.id
                     );
                     this.deleteTutorialDialog = false;
                     this.tutorial = {};
@@ -350,9 +350,6 @@ export default {
     :deep(.p-toolbar) {
         flex-wrap: wrap;
 
-        .p-button {
-            marging-bottom: 0.25rem;
-        }
     }
 
 }
