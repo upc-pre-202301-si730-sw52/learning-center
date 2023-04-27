@@ -191,13 +191,16 @@ export default {
 
     },
     created() {
+        console.log("created");
         this.tutorialsService = new TutorialsApiService();
         this.tutorialsService.getAll()
             .then((response) => {
-                this.tutorials = response.data.forEach((tutorial) =>
+                this.tutorials = response.data;
+                this.tutorials.forEach((tutorial) =>
                     this.getDisplayableTutorial(tutorial));
                 console.log(response);
             });
+        console.log(this.tutorials);
         this.initFilters();
     },
 
