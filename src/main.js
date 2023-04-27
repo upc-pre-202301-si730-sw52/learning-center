@@ -30,7 +30,11 @@ import Dropdown from "primevue/dropdown";
 import Tag from "primevue/tag";
 import Card from "primevue/card";
 
+// Router
+import router from "./router/index.js";
+
 createApp(App)
+    .use(router)
     .use(PrimeVue, { ripple: true })
     .use(ToastService)
     .component('pv-data-table', DataTable)
